@@ -9,5 +9,77 @@
   </head>
 <body>
         <h1>What Are We Going To Do Tonight?</h1>
-
+        <div id="ActivitySelection">
+            <h2>Your Activity:</h2>
+            <form id="activity">
+                <label for="activityType">What type of activity interests you?</label>
+                    <select name="activity" id="activity">
+                        <option value="Rec">Recreation</option>
+                         <option value="cook">Cooking</option>
+                        <option value="education">Educational</option>
+                         <option value="Social">Social</option>
+                         <option value="Music">Music</option>
+                         <option value="charity">Charity</option>
+                         <option value="relaxation">Relaxation</option>
+                    </select>
+                <br>
+                <label for="participants">Number of people</label>
+                    <select name="participants" id="participants">
+                        <option value="1">1</option>
+                         <option value="2">2</option>
+                        <option value="3">3</option>
+                         <option value="4">4</option>
+                         <option value="5orMore">5+</option>
+                    </select>
+                    <br><br>
+                <input type="Submit"><br><br>
+            </form>
+        </div>
+        <div id="viceSelection">
+            <h2>Your Vice</h2>
+            <h3>Cannabis</h3>
+            <form id="cannabis">
+                <label for="FavStrain">Enter your favorite strain:</label><br>
+                <input type="text" id="FavStrain"><br>
+                <input type="Submit">
+            </form>
+            <h4>And/Or</h4>
+            <h3>Cocktail</h3>
+            <form id="cocktail">
+                <label for="cocktailIngred">Enter your preffered ingredient (alcohol or mixer)</label>
+                <input type="text" id="cocktailIngred">
+                <input type="Submit">
+            </form>
+        </div>
+        <br><br>
+        <div id="music">
+            <h2>Music</h2>
+            <form id="music">
+                <label for="musicMood">How do you feel? (Please enter a mood)</label>
+                <input type="text" id="musicMood"><br>
+                <label for="musicGenre">Select a Genre</label>
+                    <select name="musicGenre" id="musicGenre">
+                        <option value="Rock">Rock</option>
+                         <option value="Country">Country</option>
+                        <option value="rap">Rap/Hip-hop</option>
+                         <option value="classical">Classical</option>
+                         <option value="dubStep">DubStep</option>
+                         <option value="KPop">KPop</option>
+                    </select><br>
+                    <label for="musicdecade">Select a decade</label>
+                    <select name="musicdecade" id="musicdecade">
+                        <option value="60">1960's</option>
+                         <option value="70">1970's</option>
+                        <option value="80">1980's</option>
+                         <option value="90">1990's</option>
+                         <option value="00">2000's</option>
+                         <option value="10">2010's</option>
+                         <option value="20">2020's</option>
+                    </select><br>
+                    <input type="submit">
+            </form>
+        </div>
+        <div id="footer">
+            <p> This is the bottom of the site. Aknowledgements and citations will go here</p>
+        </div>
 </body>
