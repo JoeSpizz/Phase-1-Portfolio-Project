@@ -14,6 +14,7 @@
             <form id="activity">
                 <label for="activityType">What type of activity interests you?</label>
                     <select name="activity" id="activity">
+                        <option value="random">Random</option>
                         <option value="Rec">Recreation</option>
                          <option value="cook">Cooking</option>
                         <option value="education">Educational</option>
@@ -25,6 +26,7 @@
                 <br>
                 <label for="participants">Number of people</label>
                     <select name="participants" id="participants">
+                        <option value="any">Any</option>
                         <option value="1">1</option>
                          <option value="2">2</option>
                         <option value="3">3</option>
@@ -34,15 +36,23 @@
                     <br><br>
                 <input type="Submit"><br><br>
             </form>
+            <h4>Tonight you will:</h4>
+            <p class = "actCard" id="activity">Invite some friends over for a game night</p>
+            <p class = "actCard" id="participants"> We suggest 4 people, but it's only a suggestion</p>
+            <p class = "actCard" id="actType">This is a social activity, designed to be enjoyed with friends!</p>
+
         </div>
         <div id="viceSelection">
             <h2>Your Vice</h2>
             <h3>Cannabis</h3>
+        <!-- Cannabis might have to be some other selection type. Predetemined list. Something like that.
+        Cannabis API's are old/out of date/contain poor informaion. Very dissapointing. -->
             <form id="cannabis">
                 <label for="FavStrain">Enter your favorite strain:</label><br>
                 <input type="text" id="FavStrain"><br>
                 <input type="Submit">
             </form>
+            <h4>Please select one</h4>
             <h4>And/Or</h4>
             <h3>Cocktail</h3>
             <form id="cocktail">
@@ -50,6 +60,9 @@
                 <input type="text" id="cocktailIngred">
                 <input type="Submit">
             </form>
+            <h4>Which of these will you sip upon?</h4>
+            <p class="drinkCard" id="drink">3-Mile Long Island Iced Tea</p>
+            <img class="drinkCard" src="https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg" alt="3-Mile Long Island Iced Tea"/>
         </div>
         <br><br>
         <div id="music">
