@@ -9,23 +9,34 @@ actSubmit.addEventListener('submit',activitySubmit)
 
 function activitySubmit(event){
     event.preventDefault();
+    fetchEvent(event)}
+
+function fetchEvent(event){
    let chosenActivity = document.querySelector("#actSelect")
    let numParticipants = document.querySelector("#numParticipants")
    fetch(`http://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
    .then(res => res.json())
   .then(event => {
-      activityMessage(event)
-})
-}
+    console.log(event.participants)
+    console.log(numParticipants.value)
+      if (numParticipants.value === `any`){
+    return activityMessage(event)}
+     if (numParticipants.value == event.participants){
+         console.log("numbers matched")
+       return activityMessage(event)
+    }
+     if (numParticipants.value !== event.participants){
+         console.log("no match")
+       return fetchEvent(event)}
+
+    if(numParticipants.value == 5){
+        return activityMessage(event)
+    }
+
+})}
+
 // I really want this to work to allow to select for number of participants.
-// if (numParticipants.value === any){
-//     activityMessage(event)}
-//     else if (numParticipants.value !== event.participants){
-//         activitySubmit(event)
-//     }
-//     else {activityMessage(event)}
-// })
-// }
+
 function activityMessage(Obj){
     let activityChosen = document.querySelector("#activityChosen");
     let players = document.querySelector("#participants");
