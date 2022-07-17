@@ -3,18 +3,19 @@ h1.addEventListener('click', alertf)
 function alertf(){
     alert("I've been clicked")
 }
-
+//Simply creating the event listener for the activity submit. Sending it to the next function
 let actSubmit = document.querySelector("#activityForm")
 actSubmit.addEventListener('submit',activitySubmit)
-
+//Had to break out feetchEvent because recursively running preventDefault breaks the loop.
 function activitySubmit(event){
     event.preventDefault();
     fetchEvent(event)}
-
+//After a submit activity event, this function fetches an activity of the chosen type from the BORED API.
+//It then confirms if the number of participants matches. If it doesn't, it re-fetches a new activity. Otherwise publish function runs.
 function fetchEvent(event){
    let chosenActivity = document.querySelector("#actSelect")
    let numParticipants = document.querySelector("#numParticipants")
-   fetch(`http://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
+   fetch(`https://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
    .then(res => res.json())
   .then(event => {
     console.log(event.participants)
@@ -34,9 +35,7 @@ function fetchEvent(event){
     }
 
 })}
-
-// I really want this to work to allow to select for number of participants.
-
+//This is the publish function from the submit event on the activity form. It's gated to response slightly different depending on the activity delivered.
 function activityMessage(Obj){
     let activityChosen = document.querySelector("#activityChosen");
     let players = document.querySelector("#participants");
@@ -69,11 +68,14 @@ function activityMessage(Obj){
     }
 }
 
+let cocktailSubmit = document.querySelector("#cocktail")
+cocktailSubmit.addEventListener('submit',drinkSubmit)
 
-
-                        //  cooking
-                        //  education
-                        //  social
-                        //  Music
-                        //  charity
-                        //  relaxation
+function drinkSubmit(event){
+    event.preventDefault();
+    let ingredient = document.querySelector("#cocktailIngred").value
+        fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+        .then(res =>res.json())
+        .then(event => console.log(event))
+ 
+}

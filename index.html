@@ -11,6 +11,7 @@
         <h1>What Are We Going To Do Tonight?</h1>
         <div class="formText">
             <h2 class="sectionHead">Your Activity</h2>
+            <!-- This is the form for selecting an activity and the number of participants -->
             <form id="activityForm">
                 <label for="activityType">What type of activity interests you?</label>
                     <select name="activity" id="actSelect">
@@ -38,6 +39,7 @@
                 <input type="Submit">
                 </form>
             <h4 style="line-height: 5px;">Tonight you will:</h4>
+            <!-- This will be the return values from the chosen activity submit event -->
             <div class = "actCard">
             <p  id="activityChosen"> </p>
             <p  id="participants"> </p>
@@ -57,25 +59,28 @@
             <h4>Please select one:</h4>
             <h4 class="sectionHeadMini" style="font-size: 30px;">And/Or</h4>
             <h3 class="sectionHeadMini">Cocktail</h3>
-            <form id="cocktail">
-                <label for="cocktailIngred">Enter your preffered ingredient (alcohol or mixer)</label>
-                <input type="text" id="cocktailIngred">
+            <!-- This is the form that will select 3 random cocktails based on the ingredient you enter -->
+            <form id="cocktail" name="drinkForm">
+                <label for="ingredientLabel">Enter your preffered ingredient (alcohol or mixer)</label>
+                <input type="text" name="text" id="cocktailIngred">
                 <input type="Submit">
             </form>
             <h4>Which of these will you sip upon?</h4>
-            <p class="drinkCard" id="drink">3-Mile Long Island Iced Tea
+            <!-- Here the user will select from one of the 3 created drink cards -->
+            <p class="drinkCard" id="drink1">3-Mile Long Island Iced Tea
             <img class="container" src="https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg" alt="3-Mile Long Island Iced Tea"/>
         </p>
-        <p class="drinkCard" id="drink">A Screwdriver
+        <p class="drinkCard" id="drink2">A Screwdriver
             <img class="container" src="https://www.thecocktaildb.com/images/media/drink/8xnyke1504352207.jpg" alt="Screwdriver"/>
         </p>
-        <p class="drinkCard" id="drink">A Screwdriver
+        <p class="drinkCard" id="drink3">A Screwdriver
             <img class="container" src="https://www.thecocktaildb.com/images/media/drink/8xnyke1504352207.jpg" alt="Screwdriver"/>
         </p>
         </div>
         <br><br>
         <div id="music" class="formText">
             <h2 class="sectionHead">Your music</h2>
+            <!-- This is the form to help decide a playlist to play -->
             <form id="music">
                 <label for="musicMood">How do you feel? (Please enter a mood)</label>
                 <input type="text" id="musicMood"><br>
