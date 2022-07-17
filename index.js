@@ -10,18 +10,27 @@ actSubmit.addEventListener('submit',activitySubmit)
 function activitySubmit(event){
     event.preventDefault();
    let chosenActivity = document.querySelector("#actSelect")
+   let numParticipants = document.querySelector("#numParticipants")
    fetch(`http://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
    .then(res => res.json())
   .then(event => {
-      let activityChosen = document.querySelector("#activityChosen");
-      let players = document.querySelector("#participants");
-      activityChosen.innerText = `${event.activity}`
-      players.innerText= `This event calls for ${event.participants}, but it's only a suggestion`
       activityMessage(event)
 })
 }
-
+// I really want this to work to allow to select for number of participants.
+// if (numParticipants.value === any){
+//     activityMessage(event)}
+//     else if (numParticipants.value !== event.participants){
+//         activitySubmit(event)
+//     }
+//     else {activityMessage(event)}
+// })
+// }
 function activityMessage(Obj){
+    let activityChosen = document.querySelector("#activityChosen");
+    let players = document.querySelector("#participants");
+      activityChosen.innerText = `${Obj.activity}`
+      players.innerText= `This event calls for ${Obj.participants}, but it's only a suggestion`
     let typeMessage = document.querySelector("#actType")
     if(Obj.type === 'recreational'){
         typeMessage.innerText = `This recreational activity is about having fun! Indoors or out.`
