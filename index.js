@@ -76,6 +76,38 @@ function drinkSubmit(event){
     let ingredient = document.querySelector("#cocktailIngred").value
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
         .then(res =>res.json())
-        .then(event => console.log(event))
- 
+        .then(event => {
+            
+            addADrink(event)
+        })
+
 }
+
+function addADrink(drinkObj){
+    for (let i=1; i<=3;i++){
+        let randomDrink= drinkObj.drinks[Math.floor(Math.random() * drinkObj.drinks.length)];
+        let drinkChoice = randomDrink.strDrink
+        let drinkImgChoice = randomDrink.strDrinkThumb
+        let drinkID = randomDrink.idDrink
+        let drink = document.querySelector(`#drink${i}`)
+        let drinkImg = document.querySelector(`#drink${i}Img`)
+        let drinkIdAdd = document.querySelector(`#drink${i}ID`)
+        drink.innerText = drinkChoice
+        drinkImg.src = drinkImgChoice
+        drinkIdAdd.innerText = drinkID
+
+        addClickToDrink()
+    }
+}
+
+function addClickToDrink(){
+    let array = document.querySelectorAll(".drinkCard")
+    array.forEach(drinkCard => {
+        drinkCard.addEventListener('click', drinkClick)
+    })}
+
+function drinkClick(event){
+    alert("Drink added to plan")
+    console.log(event.currentTarget)
+}
+// pulling random array[Math.floor(Math.random() * array.length)];
