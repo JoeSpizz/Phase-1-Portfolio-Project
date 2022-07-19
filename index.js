@@ -18,8 +18,6 @@ function fetchEvent(event){
    fetch(`https://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
    .then(res => res.json())
   .then(event => {
-    console.log(event.participants)
-    console.log(numParticipants.value)
       if (numParticipants.value === `any`){
     return activityMessage(event)}
      if (numParticipants.value == event.participants){
@@ -110,4 +108,20 @@ function drinkClick(event){
     alert("Drink added to plan")
     console.log(event.currentTarget)
 }
-// pulling random array[Math.floor(Math.random() * array.length)];
+// below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
+//https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
+
+let musicForm = document.querySelector("#music")
+musicForm.addEventListener('submit',musicFormSubmit)
+
+function musicFormSubmit(event){
+    event.preventDefault()
+    let genre = document.querySelector("#musicGenre")
+    let mood = document.querySelector("#musicMood")
+    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, {
+    headers: {
+        'Access-Control-Allow-Origin' : '*',
+        }})
+    .then(res=>res.json())
+    .then(event=>console.log(event))
+}
