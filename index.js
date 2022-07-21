@@ -64,8 +64,18 @@ function activityMessage(Obj){
     else if (Obj.type === 'busywork'){
         typeMessage.innerText = `Being productive is always a good option!`
     }
+    let activityAdd = document.querySelector("#planAddBtn")
+    activityAdd.style = "visible"
+}
+//hooking up "add to plan button"
+let addActivityBtn = document.querySelector("#planAddBtn") 
+addActivityBtn.addEventListener("submit", e => console.log(e))
+
+function addActivity(){
+    alert("i've been added")
 }
 
+// adding a drink
 let cocktailSubmit = document.querySelector("#cocktail")
 cocktailSubmit.addEventListener('submit',drinkSubmit)
 
@@ -90,10 +100,11 @@ function addADrink(drinkObj){
         let drink = document.querySelector(`#drink${i}`)
         let drinkImg = document.querySelector(`#drink${i}Img`)
         let drinkIdAdd = document.querySelector(`#drink${i}ID`)
+        let drinkCard = document.querySelector(`#drinkCard${i}`)
+        drinkCard.style = "visible"
         drink.innerText = drinkChoice
         drinkImg.src = drinkImgChoice
         drinkIdAdd.innerText = drinkID
-
         addClickToDrink()
     }
 }
@@ -118,10 +129,10 @@ function musicFormSubmit(event){
     event.preventDefault()
     let genre = document.querySelector("#musicGenre")
     let mood = document.querySelector("#musicMood")
-    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, {
-    headers: {
-        'Access-Control-Allow-Origin' : '*',
-        }})
+    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, 
+    {header: {
+        'Access-Control-Allow-Origin':'*',
+      }})
     .then(res=>res.json())
     .then(event=>console.log(event))
 }
