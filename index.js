@@ -1,8 +1,15 @@
-let h1 = document.querySelector("h1")
-h1.addEventListener('click', alertf)
-function alertf(){
-    alert("I've been clicked")
-}
+// creating dark mode
+let modetheme = document.querySelector("#mode-link")
+let modeBtn = document.querySelector("#mode-button")
+modeBtn.addEventListener('click', e=>{
+    if (modetheme.getAttribute("href")==="style.css"){
+        modetheme.href="style_dark.css"
+    }
+    else{
+        modetheme.href="style.css"
+    }
+})
+
 //Simply creating the event listener for the activity submit. Sending it to the next function
 let actSubmit = document.querySelector("#activityForm")
 actSubmit.addEventListener('submit',activitySubmit)
@@ -69,10 +76,11 @@ function activityMessage(Obj){
 }
 //hooking up "add to plan button"
 let addActivityBtn = document.querySelector("#planAddBtn") 
-addActivityBtn.addEventListener("submit", e => console.log(e))
+addActivityBtn.addEventListener("click", addActivity)
 
-function addActivity(){
-    alert("i've been added")
+function addActivity(event){
+    alert("Activity added to plan")
+    console.log(event)
 }
 
 // adding a drink
