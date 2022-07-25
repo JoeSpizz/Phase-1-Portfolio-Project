@@ -98,7 +98,7 @@ function drinkSubmit(event){
         })
 
 }
-
+let drinkCard =""
 function addADrink(drinkObj){
     for (let i=1; i<=3;i++){
         let randomDrink= drinkObj.drinks[Math.floor(Math.random() * drinkObj.drinks.length)];
@@ -125,8 +125,17 @@ function addClickToDrink(){
 
 function drinkClick(event){
     alert("Drink added to plan")
-    console.log(event.currentTarget)
+    // console.log(event.currentTarget)
 }
+
+//adding hover event to drink cards when they're created
+function drinkHover(){
+    for (let i=1; i<=3;i++){
+let hoverDrink = document.querySelector(`#drinkCard${i}`)
+hoverDrink.addEventListener('mouseenter', e => e.target.style.border = "5px inset rgb(62, 234, 15)")
+hoverDrink.addEventListener('mouseleave', e => e.target.style.border = "5px inset rgb(48, 22, 222)")
+}}
+drinkHover()
 // below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
 //https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
 
