@@ -78,9 +78,12 @@ function activityMessage(Obj){
 let addActivityBtn = document.querySelector("#planAddBtn") 
 addActivityBtn.addEventListener("click", addActivity)
 
-function addActivity(event){
+function addActivity(){
     alert("Activity added to plan")
-    console.log(event)
+    let finalActivityChosen = document.querySelector("#activityChosen").innerText;
+    let finalActivity = document.querySelector("#finalActivity")
+    finalActivity.innerText=finalActivityChosen    
+
 }
 
 // adding a drink
@@ -146,10 +149,10 @@ function musicFormSubmit(event){
     event.preventDefault()
     let genre = document.querySelector("#musicGenre")
     let mood = document.querySelector("#musicMood")
-    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, 
-    {header: {
-        'Access-Control-Allow-Origin':'*',
-      }})
+    fetch(`https://nameless-lake-39088.herokuapp.com/https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`,{
+        Headers: {
+            "Access-Control-Allow-Headers" : "*"
+        }})
     .then(res=>res.json())
-    .then(event=>console.log(event))
+    .then(event=>console.log(event + "hello"))
 }
