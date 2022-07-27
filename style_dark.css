@@ -88,7 +88,35 @@ body {background-color:black;
         height: 100%;
         display: inline-block;
      }
-
+     .planedActivity{
+        text-align: center;
+        font-family: Helvetica;
+        font-weight: bolder;
+        font-size: 20px;
+        color: rgb(246, 103, 103);
+        border: 5px ridge rgb(208, 139, 11);
+        padding: 1rem;
+        width: 15rem;
+        height: 4rem;
+        display: inline-flex;
+        margin: auto;
+        box-shadow: 10px 10px 10px rgb(174, 116, 8)
+     }
+    
+     .plannedDrink {
+        text-align: center;
+        font-family: Georgia;
+        font-weight: bold;
+        border: 5px inset rgb(48, 22, 222);
+        border-radius: 50px;
+        padding: 1rem;
+        width: 15rem;
+        height: 15rem;
+        display: inline-grid;
+        margin: 1rem .75rem;
+        box-shadow: 10px 10px 10px grey;
+        color:rgb(155, 4, 4);
+      }
      #footer{
          color: #FFF8E7;
      }

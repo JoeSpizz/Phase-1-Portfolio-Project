@@ -126,9 +126,10 @@ function addClickToDrink(){
         drinkCard.addEventListener('click', drinkClick)
     })}
 
-function drinkClick(event){
+function drinkClick(target){
+   let drinkID = target.currentTarget.lastChild.previousSibling.innerHTML
     alert("Drink added to plan")
-    // console.log(event.currentTarget)
+    finalizeDrink(drinkID)
 }
 
 //adding hover event to drink cards when they're created
@@ -139,6 +140,13 @@ hoverDrink.addEventListener('mouseenter', e => e.target.style.border = "5px inse
 hoverDrink.addEventListener('mouseleave', e => e.target.style.border = "5px inset rgb(48, 22, 222)")
 }}
 drinkHover()
+
+//selecting a drink adds it to your plan for the night
+function finalizeDrink(drinkID){
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`)
+    .then(e => e.json())
+    .then (e => console.log(e))
+}
 // below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
 //https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
 
