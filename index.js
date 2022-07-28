@@ -203,7 +203,7 @@ function musicFormSubmit(event){
     fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, {
         headers: {
           'Content-Type': 'application/json',
-          'API-Key': 'secret'
+          'Access-Control-Allow-Origin': '*'
         }
       })
     .then((response) => response.json())
