@@ -48,7 +48,7 @@ body {background-color:black;
         border: 5px ridge rgb(208, 139, 11);
         padding: 1rem;
         width: 15rem;
-        height: 20rem;
+        height: auto;
         display: inline-grid;
         margin: 1rem .75rem;
         box-shadow: 10px 10px 10px rgb(174, 116, 8)
@@ -97,7 +97,7 @@ body {background-color:black;
         border: 5px ridge rgb(208, 139, 11);
         padding: 1rem;
         width: 15rem;
-        height: 4rem;
+        height: auto;
         display: inline-flex;
         margin: auto;
         box-shadow: 10px 10px 10px rgb(174, 116, 8)
@@ -111,7 +111,7 @@ body {background-color:black;
         border-radius: 50px;
         padding: 1rem;
         width: 15rem;
-        height: 15rem;
+        height: auto;
         display: inline-grid;
         margin: 1rem .75rem;
         box-shadow: 10px 10px 10px grey;

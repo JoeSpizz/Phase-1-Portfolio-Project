@@ -4,9 +4,11 @@ let modeBtn = document.querySelector("#mode-button")
 modeBtn.addEventListener('click', e=>{
     if (modetheme.getAttribute("href")==="style.css"){
         modetheme.href="style_dark.css"
+        modeBtn.innerText = "Light Mode"
     }
     else{
         modetheme.href="style.css"
+        modeBtn.innerText = "Dark Mode"
     }
 })
 
@@ -129,7 +131,7 @@ function addClickToDrink(){
 function drinkClick(target){
    let drinkID = target.currentTarget.lastChild.previousSibling.innerHTML
     alert("Drink added to plan")
-    finalizeDrink(drinkID)
+    fetchDrinkDetails(drinkID)
 }
 
 //adding hover event to drink cards when they're created
@@ -142,10 +144,51 @@ hoverDrink.addEventListener('mouseleave', e => e.target.style.border = "5px inse
 drinkHover()
 
 //selecting a drink adds it to your plan for the night
-function finalizeDrink(drinkID){
+function fetchDrinkDetails(drinkID){
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`)
     .then(e => e.json())
-    .then (e => console.log(e))
+    .then (e => getIngredients(e))
+}
+
+function getIngredients(drinkArray){
+        let drinkObj = drinkArray.drinks[0]
+        let ingredientArray = []
+           if(drinkObj.strIngredient1 !== null){
+               ingredientArray.push(drinkObj.strIngredient1)
+           }
+           if(drinkObj.strIngredient2 !== null){
+            ingredientArray.push(drinkObj.strIngredient2)
+           }
+           if(drinkObj.strIngredient3 !== null){
+            ingredientArray.push(drinkObj.strIngredient3)
+        }
+        if(drinkObj.strIngredient4 !== null){
+            ingredientArray.push(drinkObj.strIngredient4)
+        }
+        if(drinkObj.strIngredient5 !== null){
+            ingredientArray.push(drinkObj.strIngredient5)
+        }
+        if(drinkObj.strIngredient6 !== null){
+            ingredientArray.push(drinkObj.strIngredient6)
+        }
+        if(drinkObj.strIngredient7 !== null){
+            ingredientArray.push(drinkObj.strIngredient7)
+        }
+        if(drinkObj.strIngredient8 !== null){
+            ingredientArray.push(drinkObj.strIngredient8)
+        }
+        let drinkName = document.querySelector("#finalDrink")
+        drinkName.innerText = drinkObj.strDrink   
+        finalieDrink(ingredientArray)
+        }
+
+function finalieDrink(ingredientArray){
+    let ingredientList = document.querySelector("#listOfIngredients")
+    ingredientArray.map(element =>{
+        let li = document.createElement('li')
+        li.appendChild(document. createTextNode(element));
+        ingredientList.appendChild(li)
+    })
 }
 // below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
 //https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
@@ -157,10 +200,9 @@ function musicFormSubmit(event){
     event.preventDefault()
     let genre = document.querySelector("#musicGenre")
     let mood = document.querySelector("#musicMood")
-    fetch(`https://nameless-lake-39088.herokuapp.com/https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`,{
-        Headers: {
-            "Access-Control-Allow-Headers" : "*"
-        }})
-    .then(res=>res.json())
+    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`,{
+    mode: "no-cors",     
+   })
+   .then(res =>res.json())
     .then(event=>console.log(event + "hello"))
 }
