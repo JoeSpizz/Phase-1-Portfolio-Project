@@ -24,7 +24,7 @@ function activitySubmit(event){
 function fetchEvent(event){
    let chosenActivity = document.querySelector("#actSelect")
    let numParticipants = document.querySelector("#numParticipants")
-   fetch(`https://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
+   fetch(`http://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
    .then(res => res.json())
   .then(event => {
       if (numParticipants.value === `any`){
@@ -200,9 +200,12 @@ function musicFormSubmit(event){
     event.preventDefault()
     let genre = document.querySelector("#musicGenre")
     let mood = document.querySelector("#musicMood")
-    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`,{
-    mode: "no-cors",     
-   })
-   .then(res =>res.json())
-    .then(event=>console.log(event + "hello"))
-}
+    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'API-Key': 'secret'
+        }
+      })
+    .then((response) => response.json())
+    .then(data => console.log(data+ "hello"));
+    }
