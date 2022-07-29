@@ -85,7 +85,7 @@ h1 {
   /* playlist picture bounding */
   #playlistPic{
       width: 15rem;
-      height: 20rem;
+      height: 15rem;
       border-radius: 30px;
   }
 /* ensure the image is contained */

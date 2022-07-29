@@ -114,6 +114,13 @@ body {background-color:black;
         color:rgb(231, 77, 77);
         
       }
+
+       /* playlist picture bounding */
+  #playlistPic{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 30px;
+}
     
       #finalDrink{
           font-family: 'Arial Narrow Bold', sans-serif;

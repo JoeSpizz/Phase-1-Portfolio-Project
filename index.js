@@ -194,15 +194,35 @@ function finalieDrink(ingredientArray){
 let musicForm = document.querySelector("#music")
 musicForm.addEventListener('submit',musicFormSubmit)
 
+// <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0vHZ8elq0UK?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+
 function musicFormSubmit(event){
         event.preventDefault()
         let mood = document.querySelector("#musicMood")
         let playlistImage = document.querySelector("#playlistPic")
         let playlistBtn = document.querySelector("#musicAddBtn")
-        
+
         if (mood.value === `Feelin`){
-            playlistImage.src = "https://i.scdn.co/image/ab67706c0000bebb051678a6db7c5d35fd14bd49"
-           
+            playlistImage.src = "https://i.scdn.co/image/ab67706c0000bebb128a34ba3a5ba8edf3590bad"
+        }
+        if (mood.value === `Peaceful`){
+            playlistImage.src = "https://i.scdn.co/image/ab67706f00000003da3856c6073117386958fd48"
+        }
+        if (mood.value === `Studious`){
+            playlistImage.src = "https://i.scdn.co/image/ab67616d0000b27324e2fde8d3bc3f5e85ffeea3"
+        }
+        if (mood.value === `Energetic`){
+            playlistImage.src = "https://i.scdn.co/image/ab67706f00000003d8719001db822961551b017c"
+        }
+        if (mood.value === `Happy`){
+            playlistImage.src = "https://i.scdn.co/image/ab67706f000000035af1070c80cd50dbbb4cfa19"
+        }
+        if (mood.value === `Nostalgic`){
+            playlistImage.src = "https://i.scdn.co/image/ab67706f0000000385b35b1ca11e8a1ea8885011"
+        }
+        if (mood.value === `Rock`){
+            playlistImage.src = "https://i.scdn.co/image/ab67616d00001e0263dcefae395de2e18cf2b932"
         }
         playlistImage.style = "visible"
         playlistBtn.style = "visible"
@@ -214,9 +234,31 @@ musicSelection.addEventListener('click', playlistApproved)
 function playlistApproved(){
     alert("Playlist added to plan below")
     let finalMusic = document.querySelector("#musicChoice")
+    let mood = document.querySelector("#musicMood")
+    if (mood.value === `Feelin`){
     finalMusic.innerHTML = `<iframe id="finalMusic" style="border-radius:70px 10px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m4icL86Ru?utm_source=generator&theme=0" width="100%" display="inline-block" height="380" frameBorder="0" allowfullscreen="" defer allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+    }
+    if (mood.value === `Peaceful`){
+        finalMusic.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWTjLfR5thd2p?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+        }
+        if (mood.value === `Studious`){
+            finalMusic.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/4WvKA2Da1YSVLyrW6aTNaK?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+            }
+            if (mood.value === `Energetic`){
+                finalMusic.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0vHZ8elq0UK?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+                }
+                if (mood.value === `Happy`){
+                    finalMusic.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+                    }
+                    if (mood.value === `Nostalgic`){
+                        finalMusic.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4uU3TGzIPXL?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+                        }
+                        if (mood.value === `Rock`){
+                            finalMusic.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EQpj7X7UK8OOF?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+                            }
 }
 
+// <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EQpj7X7UK8OOF?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
 // below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
 //https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
