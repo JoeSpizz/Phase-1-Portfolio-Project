@@ -86,6 +86,7 @@ h1 {
   #playlistPic{
       width: 15rem;
       height: 20rem;
+      border-radius: 30px;
   }
 /* ensure the image is contained */
  .container {

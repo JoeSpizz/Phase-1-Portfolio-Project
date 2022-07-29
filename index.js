@@ -81,7 +81,7 @@ let addActivityBtn = document.querySelector("#planAddBtn")
 addActivityBtn.addEventListener("click", addActivity)
 
 function addActivity(){
-    alert("Activity added to plan")
+    alert("Activity added to plan at bottom of page")
     let finalActivityChosen = document.querySelector("#activityChosen").innerText;
     let finalActivity = document.querySelector("#finalActivity")
     finalActivity.innerText=finalActivityChosen    
@@ -130,7 +130,7 @@ function addClickToDrink(){
 
 function drinkClick(target){
    let drinkID = target.currentTarget.lastChild.previousSibling.innerHTML
-    alert("Drink added to plan")
+    alert("Drink added to plan at bottom of page")
     fetchDrinkDetails(drinkID)
 }
 
@@ -191,24 +191,31 @@ function finalieDrink(ingredientArray){
     })
 }
 
-//Music Playlist optionsBBE <iframe id="finalMusic" style="border-radius:70px 10px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m4icL86Ru?utm_source=generator&theme=0" width="100%" display="inline-block" height="380" frameBorder="0" allowfullscreen="" defer allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 let musicForm = document.querySelector("#music")
 musicForm.addEventListener('submit',musicFormSubmit)
 
 function musicFormSubmit(event){
         event.preventDefault()
         let mood = document.querySelector("#musicMood")
-        console.log(mood.value)
+        let playlistImage = document.querySelector("#playlistPic")
+        let playlistBtn = document.querySelector("#musicAddBtn")
+        
         if (mood.value === `Feelin`){
-            let playlistImage = document.querySelector("#playlistPic")
-            let playlistBtn = document.querySelector("#musicAddBtn")
             playlistImage.src = "https://i.scdn.co/image/ab67706c0000bebb051678a6db7c5d35fd14bd49"
-            playlistImage.style = "visible"
-            playlistBtn.style = "visible"
+           
         }
+        playlistImage.style = "visible"
+        playlistBtn.style = "visible"
     }
 
+let musicSelection = document.querySelector('#musicAddBtn')
+musicSelection.addEventListener('click', playlistApproved)
 
+function playlistApproved(){
+    alert("Playlist added to plan below")
+    let finalMusic = document.querySelector("#musicChoice")
+    finalMusic.innerHTML = `<iframe id="finalMusic" style="border-radius:70px 10px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m4icL86Ru?utm_source=generator&theme=0" width="100%" display="inline-block" height="380" frameBorder="0" allowfullscreen="" defer allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>`
+}
 
 
 // below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
