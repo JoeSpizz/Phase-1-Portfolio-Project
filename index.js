@@ -24,7 +24,7 @@ function activitySubmit(event){
 function fetchEvent(event){
    let chosenActivity = document.querySelector("#actSelect")
    let numParticipants = document.querySelector("#numParticipants")
-   fetch(`http://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
+   fetch(`https://www.boredapi.com/api/activity?type=${chosenActivity.value}`)
    .then(res => res.json())
   .then(event => {
       if (numParticipants.value === `any`){
