@@ -19,3 +19,5 @@ Using spotify embed codes we can select the playlist we like and play it directl
 How To Use:
 Simply navigate through each option and select what feels best from the drop-down menus. If you like
 the option selected there is a dedicated button to add that portion of the evening to your plan. When you've made your three selections the 'itinerary' for the night will be at the bottom of the page. 
+
+Video of tutorial: https://www.youtube.com/watch?v=LV741sZEExQ
