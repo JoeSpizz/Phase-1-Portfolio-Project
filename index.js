@@ -190,22 +190,43 @@ function finalieDrink(ingredientArray){
         ingredientList.appendChild(li)
     })
 }
-// below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
-//https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
 
+//Music Playlist optionsBBE <iframe id="finalMusic" style="border-radius:70px 10px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m4icL86Ru?utm_source=generator&theme=0" width="100%" display="inline-block" height="380" frameBorder="0" allowfullscreen="" defer allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 let musicForm = document.querySelector("#music")
 musicForm.addEventListener('submit',musicFormSubmit)
 
 function musicFormSubmit(event){
-    event.preventDefault()
-    let genre = document.querySelector("#musicGenre")
-    let mood = document.querySelector("#musicMood")
-    fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': 'https://joespizz.github.io'
+        event.preventDefault()
+        let mood = document.querySelector("#musicMood")
+        console.log(mood.value)
+        if (mood.value === `Feelin`){
+            let playlistImage = document.querySelector("#playlistPic")
+            let playlistBtn = document.querySelector("#musicAddBtn")
+            playlistImage.src = "https://i.scdn.co/image/ab67706c0000bebb051678a6db7c5d35fd14bd49"
+            playlistImage.style = "visible"
+            playlistBtn.style = "visible"
         }
-      })
-    .then((response) => response.json())
-    .then(data => console.log(data+ "hello"));
     }
+
+
+
+
+// below is the API for the musicovery playlist builder. [[UPPRECASE]] is variables the form will select
+//https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=[[GENRE/MOOD]]&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=[[DECADE START]]&yearmax=[[DECADEEND]]
+
+// let musicForm = document.querySelector("#music")
+// musicForm.addEventListener('submit',musicFormSubmit)
+
+// function musicFormSubmit(event){
+//     event.preventDefault()
+//     let genre = document.querySelector("#musicGenre")
+//     let mood = document.querySelector("#musicMood")
+//     fetch(`https://musicovery.com/api/V6/playlist.php?&fct=getfromtag&tag=${genre.value}&popularitymin=50&popularitymax=100&listenercountry=us&yearmin=2000&yearmax=2009`, {
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Access-Control-Allow-Origin': 'https://joespizz.github.io'
+//         }
+//       })
+//     .then((response) => response.json())
+//     .then(data => console.log(data+ "hello"));
+//     }

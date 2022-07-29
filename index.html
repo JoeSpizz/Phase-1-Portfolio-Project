@@ -47,7 +47,6 @@
             <input type="Submit" value="Add to Plan" id="planAddBtn" style="visibility: hidden;">
         </div>
         </div>
-        <input type="Submit" value="Add to Plan" id="planAddBtn" style="visibility: hidden;">
         <div class="formText" id="viceSelection">
             <h2 class="sectionHead">Your Vice</h2>
             <h3 class="sectionHeadMini">Cocktail Selector</h3>
@@ -81,43 +80,22 @@
             <h2 class="sectionHead">Your music</h2>
             <!-- This is the form to help decide a playlist to play -->
             <form id="music">
-                <label for="musicForm">Pick a mood OR genre (not both)</label> <br>
-                <label for="musicMood">Mood:</label>
-                    <select name="musicMood" id="musicMood">
+                <label for="moodForm">Select the mood of your playlist:</label>
+                    <select name="moodForm" id="musicMood">
                         <option value="none">None</option>
-                        <option value="calm">Calm</option>
-                         <option value="chillout">Chillout</option>
-                        <option value="dance">Dance</option>
+                        <option value="calm">Peaceful</option>
+                         <option value="Feelin">Feelin' Myself</option>
+                        <option value="dance">Studious</option>
                          <option value="energetic">Energetic</option>
                          <option value="happy">Happy</option>
                          <option value="nostalgic">Nostlagic</option>
-                         <option value="sad">Sad</option>
-                    </select><br>
-                <label for="musicGenre">Genre:</label>
-                    <select name="musicGenre" id="musicGenre">
-                        <option value="none">None</option>
-                        <option value="blues">Blues</option>
-                         <option value="classical">Classical</option>
-                        <option value="country">Country</option>
-                         <option value="funk">Funk</option>
-                         <option value="hip-hop">Hip-Hop</option>
-                         <option value="hard-rock">Hard-rock</option>
-                         <option value="pop">Pop</option>
-                         <option value="techno">Techno</option>
-                    </select><br>
-                    <label for="musicdecade">And... <br>Select a decade</label>
-                    <select name="musicdecade" id="musicdecade">
-                        <option value="60">1960's</option>
-                         <option value="70">1970's</option>
-                        <option value="80">1980's</option>
-                         <option value="90">1990's</option>
-                         <option value="00">2000's</option>
-                         <option value="10">2010's</option>
-                         <option value="20">2020's</option>
+                         <option value="sad">Let's Rock!</option>
                     </select><br>
                     <input type="submit">
             </form>
-             <h4>This playlist should be perfect:</h4>
+             <h4>What do you think of this?</h4>
+             <img id="playlistPic" src="" style="visibility: hidden;"><br>
+             <input type="Submit" value="I dig it" id="musicAddBtn" style="visibility: hidden;">
         </div>
         <div>
             <h1>Your Plan for the evening</h1>
@@ -129,7 +107,6 @@
                     <ul id="listOfIngredients"></ul>    
                 </div>
                 <div id="musicChoice">
-                    <iframe id="finalMusic" style="border-radius:70px 10px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX66m4icL86Ru?utm_source=generator&theme=0" width="100%" display="inline-block" height="380" frameBorder="0" allowfullscreen="" defer allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                 </div>
             </div>
         </div>
