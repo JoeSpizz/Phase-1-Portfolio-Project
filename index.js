@@ -98,6 +98,8 @@ function drinkSubmit(event){
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
         .then(res =>res.json())
         .then(event => {
+            console.log(event)
+            debugger
             
             addADrink(event)
         })
